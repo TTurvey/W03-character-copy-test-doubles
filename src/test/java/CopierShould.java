@@ -11,6 +11,7 @@ public class CopierShould {
     void GetChar_is_called_once () {
         Copier copier = new Copier(source, destination);
         copier.Copy();
+//        MOCK
         verify(source, atLeastOnce()).GetChar();
     }
 
@@ -18,6 +19,7 @@ public class CopierShould {
     void setDestination_SetChar_is_called_when_Copy_is_called() {
         Copier copier = new Copier(source, destination);
         copier.Copy();
+//        MOCK
         verify(destination, atLeastOnce()).SetChar(anyChar());
     }
 
@@ -25,15 +27,29 @@ public class CopierShould {
     void source_and_destination_should_have_the_same_character() {
         char OUR_CHAR = 'n';
 
+//        STUB
         when(source.GetChar()).thenReturn(OUR_CHAR);
+
         Copier copier = new Copier(source, destination);
         copier.Copy();
 
+//        MOCK
         verify(destination, atLeastOnce()).SetChar(OUR_CHAR);
+    }
+
+    @Test
+    void destination_not_called_when_source_returns_new_line() {
+        char NEW_LINE = '\n';
+
+//        STUB
+        when(source.GetChar()).thenReturn(NEW_LINE);
+
+        Copier copier = new Copier(source, destination);
+        copier.Copy();
+
+//        MOCK
+        verify(destination, never()).SetChar(NEW_LINE);
     }
 
 }
 
-
-
-//        verify(source, atLeastOnce()).GetChar(); //MOCK
