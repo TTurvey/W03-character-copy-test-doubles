@@ -2,6 +2,7 @@ public class Copier {
 
     private final ISource source;
     private final IDestination destination;
+    private String string;
 
     public Copier(ISource source, IDestination destination) {
         this.source = source;
@@ -10,9 +11,9 @@ public class Copier {
 
     public void Copy() {
         char Char = source.GetChar();
-        if (Char != '\n') {
-            destination.SetChar(Char);
-        }
+//        if (Char != '\n') {
+//            destination.SetChar(Char);
+//        }
     }
 
 }
