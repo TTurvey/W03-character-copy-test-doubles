@@ -15,4 +15,5 @@ class CopierShould2 {
         assertEquals(1, sourceMock.getCharWasCalled);
     }
 
+
 }
