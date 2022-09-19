@@ -1,11 +1,17 @@
 public class Copier {
-    {
-        public Copier(…) {
 
-        }
+    private final ISource source;
+    private final IDestination destination;
 
-        public void Copy() {
+    public Copier(ISource source, IDestination destination) {
+        this.source = source;
+        this.destination = destination;
+    }
 
+    public void Copy() {
+        char Char = source.GetChar();
+        if (Char != '\n') {
+            destination.SetChar(Char);
         }
     }
 
