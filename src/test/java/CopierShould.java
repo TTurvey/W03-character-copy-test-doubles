@@ -11,7 +11,7 @@ public class CopierShould {
     void GetChar_is_called_once () {
         Copier copier = new Copier(source, destination);
         copier.Copy();
-//        MOCK
+
         verify(source, atLeastOnce()).GetChar();
     }
 
@@ -19,7 +19,7 @@ public class CopierShould {
     void setDestination_SetChar_is_called_when_Copy_is_called() {
         Copier copier = new Copier(source, destination);
         copier.Copy();
-//        MOCK
+
         verify(destination, atLeastOnce()).SetChar(anyChar());
     }
 
@@ -33,7 +33,6 @@ public class CopierShould {
         Copier copier = new Copier(source, destination);
         copier.Copy();
 
-//        MOCK
         verify(destination, atLeastOnce()).SetChar(OUR_CHAR);
     }
 
@@ -47,7 +46,6 @@ public class CopierShould {
         Copier copier = new Copier(source, destination);
         copier.Copy();
 
-//        MOCK
         verify(destination, never()).SetChar(NEW_LINE);
     }
 
